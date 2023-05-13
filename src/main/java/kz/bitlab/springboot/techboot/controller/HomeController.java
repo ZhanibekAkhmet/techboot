@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 @Controller
 public class HomeController {
-    @GetMapping(value = "/")
+    @GetMapping(value = "/s")
     public String indexPage(Model model){
         ArrayList<Items> itemsArrayList = DBmanager.getItems();
         model.addAttribute("tovary",itemsArrayList);
@@ -34,7 +34,7 @@ public class HomeController {
         model.addAttribute("tovar",item);
         return "details";
     }
-    @GetMapping(value = "/sprintTask")
+    @GetMapping(value = "/")
     public String sprintTask(Model model){
         ArrayList<Student> studentArrayList=DBmanager.getStudents();
         model.addAttribute("ctudent", studentArrayList);
@@ -43,6 +43,6 @@ public class HomeController {
     @PostMapping(value = "/add-student")
     public String addStudent(Student student){
         DBmanager.addStudent(student);
-        return "redirect:/sprintTask";
+        return "redirect:/";
     }
 }
